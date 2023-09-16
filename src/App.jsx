@@ -7,6 +7,7 @@ import Chat from './components/chat/chat'
 
 
 const socket = io.connect('http://localhost:3001')
+// const socket = io.connect('https://api-realtime-chat.vercel.app/')
 
 export default function App() {
   const [name, setName] = useState('')
