@@ -6,8 +6,8 @@ import Chat from './components/chat/chat'
 // import { Routes, Route } from 'react-router-dom'
 
 
-const socket = io.connect('http://localhost:3001')
-// const socket = io.connect('https://api-realtime-chat.vercel.app/')
+// const socket = io.connect('http://localhost:3001')
+const socket = io.connect('api-realtime-chat-production.up.railway.app')
 
 export default function App() {
   const [name, setName] = useState('')
