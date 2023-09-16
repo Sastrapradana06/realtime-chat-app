@@ -9,7 +9,6 @@ function Chat({ dataProps }) {
   const [nameJoin, setNameJoin] = useState('')
 
   useEffect(() => {
-
     dataProps.socket.on('receive_message', (data) => {
       setAllMessageList(data)
     })

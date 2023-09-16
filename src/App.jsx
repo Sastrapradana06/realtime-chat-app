@@ -7,7 +7,7 @@ import Chat from './components/chat/chat'
 
 
 // const socket = io.connect('http://localhost:3001')
-const socket = io.connect('api-realtime-chat-production.up.railway.app')
+const socket = io.connect('https://132pn1bb-3001.asse.devtunnels.ms/')
 
 export default function App() {
   const [name, setName] = useState('')
