@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid white; */
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid white; */
+}
+
+.error_message p{
+  font-weight: 800;
+}
+.error_message span{
+  color: salmon;
+  margin-left: 5px;
+}
+
+.top {
+  text-align: center;
+  /* border: 1px solid white; */
+}
+
+.top p {
+  margin-top: -10px;
+  /* border: 1px solid white; */
+}
+
+.header .judul {
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 1px 5px 10px rgba(255, 255, 255, 0.5);
+}
+
+.input_user {
+  width: 70%;
+  height: max-content;
+  border: 1px solid #747bff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.input_user input {
+  margin-top: 30px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+}
+
+.input_user input:focus {
+  border: 1px solid #747bff;
+  border-radius: 5px;
+}
+
+.input_user button {
+  margin-top: 20px;
+}
+
+
+@media (min-width: 1024px) {
+  .input_user {
+    width: 50%;
+  }
+}
+
+

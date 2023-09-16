@@ -1,0 +1,243 @@
+.container_chat {
+  width: 100%;
+  /* border: 1px solid white; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat {
+  overflow: hidden;
+  top: 45px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: scroll;
+  position: fixed;
+  /* margin-top: 20px; */
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+.header_chat {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  top: 0;
+  border-bottom: 1px solid rgb(138, 135, 135);
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) ,rgba(12, 126, 192, 0.4));
+  position: fixed;
+  z-index: 44;
+  margin-bottom: 10px;
+}
+
+.header_chat button {
+  font-size: .8rem;
+  box-shadow:1px 8px 10px rgba(0, 0, 0, 0.4);
+
+}
+
+.header_chat button:hover {
+  color:  crimson;
+}
+
+.header_chat h1 {
+  text-transform: uppercase;
+  text-shadow: 1px 11px 5px rgba(250, 248, 248, 0.4);
+}
+
+.header_chat p {
+  font-size: .8rem;
+  background-color: #1a1a1a;
+  box-shadow:1px 8px 10px rgba(0, 0, 0, 0.4);
+  padding: 0.6em 1.1em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.header_chat span {
+  color:  salmon;
+  font-weight: 700;
+  margin-left: 10px;
+  font-size: .9rem;
+  padding-top: 10px;
+
+}
+
+
+.notif {
+  width: 60%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-color: black;
+  position: absolute;
+  /* transform: translateY(-50px); */
+  z-index: 999;
+  font-size: 1.rem;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  border: 1px solid #646cff;
+  box-shadow: 1px 5px 10px rgba(31, 79, 211, 0.4);
+  animation: animateNotif .3s forwards;
+}
+
+@keyframes animateNotif {
+  0% {
+    transform: translateY(-500px);
+  }
+  100% {
+    transform: translateY(-215px);
+  }
+}
+
+.message {
+  /* border: 1px solid white; */
+  max-width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.input_chat {
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid rgb(69, 67, 67);
+  background-color: rgba(22, 57, 85, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 5px;
+  z-index: 123;
+}
+
+.input_chat form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  /* border: 1px solid white; */
+  width: 95%;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid white;
+  color:  white;
+  outline: none;
+  border-radius: 5px;
+}
+
+.card_saya {
+  /* margin-top: 110px; */
+  width: 100%;
+  /* border: 1px solid white; */
+  gap: 8px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  /* justify-content: space-around; */
+  align-items: end;
+}
+
+.chat_body {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  /* border: 1px solid white; */
+}
+
+.card_client {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#client {
+  align-items: end;
+}
+
+#you {
+  align-items: start;
+}
+
+
+
+
+.chat_content{
+  width: max-content;
+  height: max-content;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 0 10px;
+  border-radius: 10px;
+  /* background-color: #074952; */
+}
+.chat_saya {
+  background-color: #074952;
+}
+
+.time {
+  margin-top: -10px;
+  color: rgb(183, 180, 180);
+}
+
+.text_chat {
+  max-width: 300px;
+}
+
+
+.chat_client {
+  align-items: end;
+}
+
+.detail_client {
+  height: max-content;
+  font-size: .7rem;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  margin-top: -10px;
+  gap: 10px;
+}
+
+.name_client, .time_client {
+  margin-top: -1px;
+}
+
+.name_client {
+  color: #14aabe;
+  text-transform: capitalize;
+}
+
+.time_client {
+  color: gray;
+}
