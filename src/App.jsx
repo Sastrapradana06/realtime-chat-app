@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import io from 'socket.io-client'
 import Chat from './components/chat/chat'
+import FooterPage from './components/footer/FooterPage'
 
 const socket = io.connect('api-realtime-chat-production.up.railway.app')
+// const socket = io.connect('http://localhost:3001')
 
 export default function App() {
   const [name, setName] = useState('')
@@ -82,6 +84,9 @@ export default function App() {
       ) : (
         <Chat dataProps={dataProps} />
       )}
+      {!isJoin ? (
+        <FooterPage />
+      ): null}
     </div>
   )
 }

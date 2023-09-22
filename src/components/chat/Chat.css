@@ -28,8 +28,9 @@
   height: 100px;
   position: absolute;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 5px;
   top: 0;
   border-bottom: 1px solid rgb(138, 135, 135);
@@ -38,9 +39,20 @@
   position: fixed;
   z-index: 44;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
-.header_chat button {
+.info_room {
+  width: 100%;
+  height: 50%;
+  box-shadow:1px 8px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: none;
+}
+
+.btn_close {
   font-size: .8rem;
   box-shadow:1px 8px 10px rgba(0, 0, 0, 0.4);
 
@@ -50,12 +62,12 @@
   color:  crimson;
 }
 
-.header_chat h1 {
+.id_room {
   text-transform: uppercase;
   text-shadow: 1px 11px 5px rgba(250, 248, 248, 0.4);
 }
 
-.header_chat p {
+.user_count {
   font-size: .8rem;
   background-color: #1a1a1a;
   box-shadow:1px 8px 10px rgba(0, 0, 0, 0.4);
@@ -64,7 +76,7 @@
   border: 1px solid transparent;
 }
 
-.header_chat span {
+.user_count span {
   color:  salmon;
   font-weight: 700;
   margin-left: 10px;
@@ -73,8 +85,24 @@
 
 }
 
+.typing {
+  width: 300px;
+  height: 20px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: -5px;
+}
 
-.notif {
+.text_typing {
+  text-transform: uppercase;
+  margin-top: -1px;
+  color: salmon;
+  font-size: .8rem;
+}
+
+
+
+.notif_join, .notif_close {
   width: 60%;
   height: 35px;
   display: flex;
@@ -84,15 +112,22 @@
   color: white;
   background-color: black;
   position: absolute;
-  /* transform: translateY(-50px); */
   z-index: 999;
   font-size: 1.rem;
   padding-bottom: 5px;
   border-radius: 10px;
   text-transform: capitalize;
-  border: 1px solid #646cff;
   box-shadow: 1px 5px 10px rgba(31, 79, 211, 0.4);
   animation: animateNotif .3s forwards;
+}
+
+.notif_join {
+  border: 1px solid #646cff;
+}
+
+.notif_close {
+  border: 1px solid crimson;
+  box-shadow: 1px 5px 12px rgba(220, 20, 60, 0.5);
 }
 
 @keyframes animateNotif {
@@ -186,6 +221,14 @@ input {
   align-items: start;
 }
 
+#client .chat_content {
+  border-radius: 20px 20px 0px 20px;
+}
+
+#you .chat_content {
+  border-radius: 20px 20px 20px 0px;
+}
+
 
 
 
@@ -198,7 +241,7 @@ input {
   justify-content: center;
   align-items: start;
   padding: 0 10px;
-  border-radius: 10px;
+  /* border-radius: 20px 20px 1px 20px; */
   /* background-color: #074952; */
 }
 .chat_saya {
@@ -240,4 +283,11 @@ input {
 
 .time_client {
   color: gray;
+}
+
+@media (min-width: 1024px) {
+  .typing {
+    width: 100%;
+    text-align: center;
+  }
 }

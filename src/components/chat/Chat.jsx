@@ -7,8 +7,18 @@ function Chat({ dataProps }) {
   const [allMessageList, setAllMessageList] = useState([])
   const [userRoom, setUserRoom] = useState('')
   const [nameJoin, setNameJoin] = useState('')
+  const [nameClose, setNameClose] = useState('')
+  const [userIsTyping, setUserIsTyping] = useState('')
 
   useEffect(() => {
+
+    if(myMessage != '') {
+      const userDataTyping = { name: dataProps.name, idRoom: dataProps.idRoom }
+      dataProps.socket.emit('typing', userDataTyping)
+    } else {
+      dataProps.socket.emit('typing', {name: '', idRoom: dataProps.idRoom})
+    }
+
     dataProps.socket.on('receive_message', (data) => {
       setAllMessageList(data)
     })
@@ -22,18 +32,21 @@ function Chat({ dataProps }) {
     })
 
     dataProps.socket.on('userCount', (data) => {
-      setUserRoom(data)
+      const { name, countRoom } = data
+      setUserRoom(countRoom)
+      setNameClose(name)
+      setTimeout(() => {
+        setNameClose('')
+      }, 2000)
     })
 
-    dataProps.socket.on('close_room', (data) => {
-      setUserRoom(data)
+    dataProps.socket.on('user_typing', (data) => {
+      setUserIsTyping(data)
     })
 
-    dataProps.socket.on('disconnect_user', (data) => {
-      setUserRoom(data)
-    })
 
-  }, [dataProps.socket, allMessageList, dataProps.roomId])
+  }, [dataProps.socket, allMessageList, dataProps.idRoom, dataProps.name, myMessage])
+
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -60,17 +73,30 @@ function Chat({ dataProps }) {
     dataProps.setIsJoin(false)
   }
 
+
   return (
     <div className="container_chat">
       {nameJoin !== '' && (
-        <div className="notif">
+        <div className="notif_join">
           <p>{nameJoin} Join Room</p>
         </div>
       )}
+      {nameClose !== '' && (
+        <div className="notif_close">
+          <p>{nameClose} Close Room</p>
+        </div>
+      )}
       <div className="header_chat">
-        <p>User: <span>{userRoom}</span></p>
-        <h1>{dataProps.idRoom}</h1>
-        <button onClick={closeRoom}>Close</button>
+        <div className="info_room">
+          <p className='user_count'>User: <span>{userRoom}</span></p>
+          <h1 className='id_room'>{dataProps.idRoom}</h1>
+          <button onClick={closeRoom} className='btn_close'>Close</button>
+        </div>
+        {userIsTyping !== '' ? (
+          <div className="typing">
+            <p className='text_typing'>{userIsTyping} Is Typing</p>
+          </div>
+        ): null}
       </div>
       <div className="chat">
         <ScrollToBottom className="message">
@@ -97,7 +123,6 @@ function Chat({ dataProps }) {
               placeholder='hai...'
               value={myMessage}
               onChange={(e) => setMyMessage(e.target.value)}
-            // disabled={isStatusJoin}
             />
             <button type='submit'>Send</button>
           </form>
