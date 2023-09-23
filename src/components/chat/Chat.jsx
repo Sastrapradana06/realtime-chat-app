@@ -12,11 +12,11 @@ function Chat({ dataProps }) {
 
   useEffect(() => {
 
-    if(myMessage != '') {
+    if (myMessage != '') {
       const userDataTyping = { name: dataProps.name, idRoom: dataProps.idRoom }
       dataProps.socket.emit('typing', userDataTyping)
     } else {
-      dataProps.socket.emit('typing', {name: '', idRoom: dataProps.idRoom})
+      dataProps.socket.emit('typing', { name: '', idRoom: dataProps.idRoom })
     }
 
     dataProps.socket.on('receive_message', (data) => {
@@ -96,7 +96,7 @@ function Chat({ dataProps }) {
           <div className="typing">
             <p className='text_typing'>{userIsTyping} Is Typing</p>
           </div>
-        ): null}
+        ) : null}
       </div>
       <div className="chat">
         <ScrollToBottom className="message">
@@ -116,17 +116,17 @@ function Chat({ dataProps }) {
             })}
           </div>
         </ScrollToBottom>
-        <div className="input_chat">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder='hai...'
-              value={myMessage}
-              onChange={(e) => setMyMessage(e.target.value)}
-            />
-            <button type='submit'>Send</button>
-          </form>
-        </div>
+      </div>
+      <div className="input_chat">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder='hai...'
+            value={myMessage}
+            onChange={(e) => setMyMessage(e.target.value)}
+          />
+          <button type='submit'>Send</button>
+        </form>
       </div>
     </div>
   )
